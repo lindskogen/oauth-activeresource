@@ -1,5 +1,7 @@
+require 'reactive_resource'
+
 module OauthActiveResource
-  class Base < ActiveResource::Base
+  class Base < ReactiveResource::Base
     
     @@oauth_connection = nil
     
