@@ -33,18 +33,15 @@ module OauthActiveResource
       @oauth_connection = oauth_connection
       super(*args)
     end
-    
+
   private
-    def request(method, path, *arguments)
-      if @oauth_connection == nil
-        super(method, path, *arguments)
+    # Oauth 2
+    def authorization_header(http_method, uri)
+      unless @oauth_connection.nil?
+        {'Authorization' => "Bearer #{@oauth_connection.token}" }
       else
-        path = "#{site.scheme}://#{site.host}:#{site.port}#{path}"
-        response = @oauth_connection.send(method, path, *arguments)
-        handle_response(response)
+        {}
       end
-    rescue Timeout::Error => e
-      raise TimeoutError.new(e.message)
     end
   end
 end
