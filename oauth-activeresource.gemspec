@@ -7,15 +7,15 @@ require "oauth-activeresource/version"
 Gem::Specification.new do |s|
   s.name        = "oauth-activeresource"
   s.version     = OauthActiveResource::VERSION
-  s.authors     = ["Alberto Pastor"]
-  s.email       = ["albert.pastor@gmail.com"]
-  s.homepage    = "https://github.com/albertopq/oauth-activeresource"
+  s.authors     = ["Alberto Pastor, Mike Atlas"]
+  s.email       = ["mike@weft.io"]
+  s.homepage    = "https://github.com/weftio/oauth-activeresource"
   s.summary     = "Rails gem that allows you to easily interact with an Oauth secured rest API with the ActiveResource model."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "=> 3.2.1"
+  s.add_dependency "rails", "~> 4"
 
   s.add_development_dependency "sqlite3"
 end
